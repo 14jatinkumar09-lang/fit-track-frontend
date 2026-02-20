@@ -15,7 +15,7 @@ const FoodLogCard = ({foodName, svg , calories , type , onClick}) => {
             <div>{foodName}</div>
             <div className='text-[12px] text-[#90A1B9]'>{calories} kcal </div>
         </div>
-        <button onClick={onClick} className='hover:cursor-pointer' ><img src='../public/delete.svg'></img></button>
+        <button onClick={onClick} className='hover:cursor-pointer' ><img src='/delete.svg'></img></button>
 </div>
         
          
