@@ -68,16 +68,38 @@ return <div className="flex justify-center p-10 dark:bg-slate-950 dark:text-whit
                 <h1 className="font-bold text-xl m-2">Welcome Back</h1>
                 <div>Enter your credentials to access your account </div>
                 <InputBox name={"email"} value={userData.email}
-                onKeyDown={(e)=>{
+                onKeyDown={async (e)=>{
                     if(e.key === "Enter") {
-                        dispatch(loginThunk(userData)) ;
+                        const res = await dispatch(loginThunk(userData)) ;
+                    console.log("res" , res)
+                    if(res?.meta?.requestStatus === "fulfilled") {
+                        toast.dismissAll() ;
+                        toast.success(res?.payload?.msg || "Login : True") ;
+                        localStorage.setItem("loginStatus" , "true") ;
+                        navigate('/') ;
+                    }
+                    else{
+                        toast.dismissAll() ;
+                        toast.error( res?.payload?.response?.data?.msg ||"Invalid Email or Password")
+                    }
                     }
                 }}
                 onChange={onChange} type={'text'} placeholder={"you@example..com"} label={"Email"} />
                 <InputBox name={"password"} value={userData.password}
-                onKeyDown={(e)=>{
+                onKeyDown={async (e)=>{
                     if(e.key === "Enter") {
-                        dispatch(loginThunk(userData)) ;
+                        const res = await dispatch(loginThunk(userData)) ;
+                    console.log("res" , res)
+                    if(res?.meta?.requestStatus === "fulfilled") {
+                        toast.dismissAll() ;
+                        toast.success(res?.payload?.msg || "Login : True") ;
+                        localStorage.setItem("loginStatus" , "true") ;
+                        navigate('/') ;
+                    }
+                    else{
+                        toast.dismissAll() ;
+                        toast.error( res?.payload?.response?.data?.msg ||"Invalid Email or Password")
+                    }
                     }
                 }}
                 onChange={onChange} type={'password'} placeholder={". . . . . . . . "} label={"Password"} />

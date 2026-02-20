@@ -42,11 +42,17 @@ export function Signup() {
         
         try {
                     setBtnLoad(true) ;
-                    const res = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, UserData)
+                    const res = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, UserData , {
+                        timeout: 10000,
+                        withCredentials: true
+                    })
                     
                     if(res.status === 200) {
                             toast.success(res.data.msg);
-                            navigate("/onboarding") ;
+                            localStorage.setItem("loginStatus" , "true") ;
+                            setTimeout(() => {
+                                navigate('/') ;
+                            }, 1500);
                             setBtnLoad(false) ;
                         }
                     
