@@ -51,7 +51,7 @@ export function Signup() {
                             toast.success(res.data.msg);
                             localStorage.setItem("loginStatus" , "true") ;
                             setTimeout(() => {
-                                navigate('/') ;
+                                navigate('/onboarding') ;
                             }, 1500);
                             setBtnLoad(false) ;
                         }
