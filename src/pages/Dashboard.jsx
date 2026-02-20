@@ -128,9 +128,9 @@ useEffect(()=>{
 
         <div className=" border rounded-xl bg-[#1D293D] w-[80%] pb-2 -mt-10">
 
-          <StatusBar label={"Calories Consumed"} current={findTotalFoodCalories()} limit={caloriesIntakeTarget} svg={"../public/background.svg"} color={"green"}/>
+          <StatusBar label={"Calories Consumed"} current={findTotalFoodCalories()} limit={caloriesIntakeTarget} svg={"/background.svg"} color={"green"}/>
 
-          <StatusBar label={"Calories Burned"} current={findTotalcaloriesBurned()} limit={caloriesBurnedTarget} svg={"../public/caloriesBurned.svg"}color={"red"}/>
+          <StatusBar label={"Calories Burned"} current={findTotalcaloriesBurned()} limit={caloriesBurnedTarget} svg={"/caloriesBurned.svg"}color={"red"}/>
 
         </div>
 

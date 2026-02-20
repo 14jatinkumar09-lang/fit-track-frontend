@@ -5,7 +5,7 @@ const FoodLogCard = ({foodName, svg , calories , type , onClick}) => {
     <div className='rounded-xl mb-3 p-3 bg-[#1D293D] '>
         <div className='flex justify-between'>
             <div className='flex gap-2'>
-                <div><img src={`../public/${svg}.svg`} ></img></div>
+                <div><img src={`/${svg}.svg`} ></img></div>
                 <div className='mt-2'>{type}</div>
                 </div>
             <div className='mt-2'>{calories} kcal</div>
