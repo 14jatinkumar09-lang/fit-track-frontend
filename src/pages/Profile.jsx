@@ -9,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast"
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 
 const Profile = () => {
@@ -19,7 +20,7 @@ const Profile = () => {
   const { userName, weight, height, goal, caloriesIntakeTarget, caloriesBurnedTarget } = useSelector(state => state.userBody)
   const GOAL = useSelector(state => state.userBody.goal)
   console.log("GOAL :", GOAL);
-
+const navigate = useNavigate() ;
   const [form, setForm] = useState({
     userName,
     weight,
