@@ -67,7 +67,7 @@ export const loginThunk = createAsyncThunk("userLogin/login" , async(userData , 
   try {
 
     const res = await axios.post(`${import.meta.env.VITE_API_URL}/login` , userData , { 
-      timeout : 10000 ,
+      timeout : 50000 ,
       withCredentials : true ,
     } )
     return res.data ;
