@@ -148,9 +148,9 @@ const Profile = () => {
             try {
               const res = await axios.get(`${import.meta.env.VITE_API_URL}/logout`, { timeout: 10000, withCredentials: true });
               toast.success(res.data.msg || "Logged out successfully");
-              setTimeout(() => {
+              
                 navigate("/login") ;
-              }, 1000);
+              
               localStorage.removeItem("loginStatus");
             } catch (error) {
               console.log(error);
