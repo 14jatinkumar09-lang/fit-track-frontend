@@ -52,11 +52,11 @@ const foodLogSlice = createSlice({
       //////
       builder.addCase(fetchFoodLog.pending , (state , action)=>{
         // console.log("pending")
-        state.loading = true ;
+        // state.loading = true ;
       }) ,
       builder.addCase(fetchFoodLog.fulfilled , (state , action)=>{
         // console.log("fulfilled")
-              state.loading = false ;
+              // state.loading = false ;
               const todayKey = new Date().toDateString();
               state.foodIntake = action?.payload?.user?.foodIntake?.filter((item)=>{
                 if (item?.deleted === true) return false;
@@ -69,7 +69,7 @@ const foodLogSlice = createSlice({
       }) ,
       builder.addCase(fetchFoodLog.rejected , (state , action)=>{
         // console.log("rejected")
-              state.loading = false ;
+              // state.loading = false ;
               // console.log(action.payload)
   
       }),

@@ -5,7 +5,9 @@ import FoodLogCard from "../components/FoodLogCard";
 import { useDispatch, useSelector } from "react-redux";
 import { addFoodItem, fetchFoodLog } from "../store/slice/FoodLog.slice.js";
 import toast, { Toaster } from "react-hot-toast";
-import { deleteItemThunk } from '../store/slice/Activity.slice.js'
+import { deleteItemThunk } from '../store/slice/Activity.slice.js' ;
+import Button2 from '@mui/material/Button';
+
 import { GoogleGenAI } from "@google/genai";
 
 
@@ -19,6 +21,7 @@ const FoodLog = () => {
   const fileInputRef = useRef(null);
 
   const foodLog = useSelector(state => state.foodLog.foodIntake);
+  const loading = useSelector(state => state.foodLog.loading);
 
   async function fileToBase64(file) {
     return new Promise((resolve, reject) => {
@@ -174,10 +177,10 @@ useEffect(()=>{
 
 
   return (
-    <div className="ml-0 md:ml-64 w-full md:w-[calc(100%-16rem)] overflow-x-hidden dark:bg-[#020618]">
+    <div className="ml-0 md:ml-64 h-screen  border-red-500  w-full md:w-[calc(100%-16rem)] overflow-x-hidden dark:bg-[#020618]">
 
       <TopBar label={"Food Log"} label2={"Track your daily intake"} label3={"Today's Total"} label4={totalCalories()+ " kcals"} color={"#00D492"} />
-<div className="w-full md:min-h-[calc(100vh-130px)] p-4 flex flex-col md:flex-row gap-4">
+<div className="w-full h-[calc(100vh-130px)] md:min-h-[calc(100vh-130px)]  border p-4 flex flex-col md:flex-row gap-4">
   <div className="w-full md:w-[45%] flex flex-col gap-3">
 
   <div className="rounded-xl text-center md:text-start  text-white font-medium p-3 bg-[#1D293D] w-full">Quick Add
@@ -197,7 +200,8 @@ useEffect(()=>{
       }} className ="border border-gray-500 rounded " placeholder="enter calories" />
     </div>}
   </div>
-  <button onClick={async()=>{
+  { !loading ?
+<button onClick={async()=>{
     if(!foodNameInput || !caloriesInput || !foodTypeToggle) {
 
       toast.dismiss()
@@ -232,7 +236,17 @@ useEffect(()=>{
    className=" w-full rounded-md py-2 text-white text-sm bg-[#00BC7D] hover:cursor-pointer"
         >
 Add Food Entry
-        </button>
+        </button> : 
+        <Button2 
+        fullWidth
+        loading
+        style={{backgroundColor:"#00BC7D" , color:"white"}}
+        loadingPosition="end"
+      >
+    
+      </Button2>
+  }
+  
         {/* <button
           onClick={() => fileInputRef.current?.click()}
           disabled={isSnapLoading}

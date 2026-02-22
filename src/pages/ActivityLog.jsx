@@ -7,6 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { Trash2, Activity } from "lucide-react";
 import { removeActivity , addActivity, addActivityThunk, fetchActivityItems, deleteItemThunk } from "../store/slice/Activity.slice";
 import { fetchFoodLog } from "../store/slice/FoodLog.slice";
+import Button2  from "@mui/material/Button";
 
 
 const ActivityLog = () => {
@@ -30,6 +31,7 @@ const ActivityLog = () => {
 
   const totalMinutes = activities?.reduce((a, b) => a + b.activityTime, 0);
 
+  const loading = useSelector(state => state.activity.loading)  
 
   /////
 
@@ -130,6 +132,7 @@ useEffect(()=>{
 
     </div>}
   </div>
+ { !loading ? 
   <button onClick={async()=>{
     if(!foodNameInput || !caloriesInput || !fileInput || !foodTypeToggle) {
 
@@ -167,7 +170,15 @@ useEffect(()=>{
    className=" w-full rounded-md py-2 text-white text-sm bg-[#00BC7D] hover:cursor-pointer"
         >
 Add Activity
-        </button>
+        </button> : <Button2 
+        fullWidth
+        loading
+        style={{backgroundColor:"#00BC7D" , color:"white"}}
+        loadingPosition="end"
+      >
+    
+      </Button2> 
+        }
         
   </div> 
   <div className={`w-full h-[calc(100vh-374px)] md:w-[55%]  overflow-y-auto md:h-[80vh] text-white `}>

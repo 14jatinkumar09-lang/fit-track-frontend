@@ -10,6 +10,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import Button2 from '@mui/material/Button';
 
 
 const Profile = () => {
@@ -17,6 +18,7 @@ const Profile = () => {
 
 
   const dispatch = useDispatch()
+  const loading = useSelector(state => state.userBody.loading) ;
   const { userName, weight, height, goal, caloriesIntakeTarget, caloriesBurnedTarget } = useSelector(state => state.userBody)
   const GOAL = useSelector(state => state.userBody.goal)
   console.log("GOAL :", GOAL);
@@ -134,12 +136,21 @@ const navigate = useNavigate() ;
             </select>
           </div>
 
-          <button
+          { !loading ?
+            <button
             onClick={saveProfile}
             className="mt-4 w-full rounded-md py-2 text-white text-sm bg-[#00BC7D] hover:cursor-pointer"
           >
             Save Changes
-          </button>
+          </button> : <Button2 
+        fullWidth
+        loading
+        style={{backgroundColor:"#00BC7D" , color:"white"}}
+        loadingPosition="end"
+      >
+    
+      </Button2>  
+          }
         </div>
       </div>
       <div className="flex justify-center">

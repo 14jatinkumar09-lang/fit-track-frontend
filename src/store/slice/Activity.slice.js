@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const initialState = {
   activities : [],
-  last7DaysActivities: []
+  last7DaysActivities: [] , loading : false
 }
 
 function getDayKeyFromTime(timeString) {
@@ -48,14 +48,16 @@ const ActivitySlice = createSlice({
     
   }, extraReducers : (builder) => {
     builder.addCase(addActivityThunk.pending , (state,action)=>{
+      state.loading = true ;
       // console.log("pending");
     }) 
     builder.addCase(addActivityThunk.fulfilled , (state,action)=>{
-      
+      state.loading = false ;
       // console.log("fulfilled");
     }) 
     builder.addCase(addActivityThunk.rejected , (state,action)=>{
       // console.log("rejected");
+      state.loading = false ;
     }) 
 
 

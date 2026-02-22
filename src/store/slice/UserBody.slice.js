@@ -33,6 +33,24 @@ const userBodySlice = createSlice({
         builder.addCase(fetchBodyDetailsThunk.rejected , (state,action)=>{
           // console.log("rejected");
         }) 
+
+        builder.addCase(editProfileThunk.pending , (state,action)=>{
+          // console.log("pending");
+          state.loading = true ;
+        }) 
+        builder.addCase(editProfileThunk.fulfilled , (state,action)=>{
+          // console.log("fulfilled");
+          state.loading = false ;
+        }) 
+        builder.addCase(editProfileThunk.rejected , (state,action)=>{
+          // console.log("rejected");
+          state.loading = false ;
+        }) 
+
+
+
+
+
   }
 })
 

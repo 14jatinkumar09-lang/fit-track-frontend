@@ -5,8 +5,8 @@ import { Menu, X } from "lucide-react"
 import { Toaster } from "react-hot-toast"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchBodyDetailsThunk } from "../store/slice/UserBody.slice.js"
-import { fetchFoodLog } from "../store/slice/FoodLog.slice.js"
-import { fetchActivityItems } from "../store/slice/Activity.slice.js"
+// import { fetchFoodLog } from "../store/slice/FoodLog.slice.js"
+// import { fetchActivityItems } from "../store/slice/Activity.slice.js"
 
 const Layout = () => {
   const dispatch = useDispatch() ;
@@ -42,7 +42,7 @@ const Layout = () => {
         className="md:hidden border-2 border-black dark:border-none fixed top-4 left-4 z-50 rounded-md   text-white p-2 shadow-lg"
         aria-label="Toggle menu"
       >
-        {sidebarOpen ? <X  size={20} /> : <Menu  color={localStorage.getItem("theme") === "dark" ? "white" : "black"} size={20} />}
+        {sidebarOpen ? <X  size={20} /> : <Menu  color={localStorage.getItem("theme") === "dark" ? "black" : "white"} size={20} />}
       </button>
 
       {sidebarOpen && (
