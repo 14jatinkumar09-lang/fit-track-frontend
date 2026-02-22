@@ -43,7 +43,7 @@ export function Signup() {
         try {
                     setBtnLoad(true) ;
                     const res = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, UserData , {
-                        timeout: 10000,
+                        timeout: 30000,
                         withCredentials: true
                     })
                     
@@ -72,7 +72,7 @@ export function Signup() {
             }
 
 
-    return <div className="flex justify-center p-10 dark:bg-slate-950 dark:text-white">
+    return <div className="flex justify-center h-screen p-10 dark:bg-slate-950 dark:text-white">
         <div className="border-2 border-gray-200 w-110 text-center rounded-md shadow-2xl">
             <h1 className="font-bold text-xl m-2">Create Account</h1>
             <div>Enter your details to create a new account</div>
