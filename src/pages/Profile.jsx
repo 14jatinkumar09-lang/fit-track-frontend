@@ -153,6 +153,8 @@ const navigate = useNavigate() ;
                 navigate("/login") ;
               
               localStorage.removeItem("loginStatus");
+              localStorage.removeItem("persist:fitTrack");
+              
             } catch (error) {
               console.log(error);
             }
