@@ -160,6 +160,18 @@ export const fetchFoodLogLast7Days = createAsyncThunk("foodLog/fetchLast7Days" ,
   }
 })
 
+export const analyzeFoodSnapThunk = createAsyncThunk("foodLog/analyzeFoodSnap", async ({ mimeType, base64Data }, { rejectWithValue }) => {
+  try {
+    const res = await axios.post(`${import.meta.env.VITE_API_URL}/analyzeFood`, { mimeType, base64Data }, {
+      withCredentials: true,
+      timeout: 45000,
+    });
+    return res.data;
+  } catch (error) {
+    return rejectWithValue(error?.response?.data || error);
+  }
+});
+
 
 
 

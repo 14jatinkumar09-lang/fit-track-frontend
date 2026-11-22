@@ -3,6 +3,7 @@ import StatusBar from "../components/StatusBar";
 import ActivityCard from '../components/ActivityCard'
 import BodyMetrics from "../components/BodyMetrics";
 import TodaySummary from '../components/TodaySummary'
+import AiCoachCard from '../components/AiCoachCard';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchActivityItems, fetchActivityItemsLast7Days } from "../store/slice/Activity.slice";
 import { fetchFoodLog, fetchFoodLogLast7Days } from "../store/slice/FoodLog.slice";
@@ -144,8 +145,10 @@ useEffect(()=>{
         <div className='flex items-center flex-col w-full gap-2 justify-center '>
           <BodyMetrics weight={weight ?weight +" kg" : "-" } height={height ? height + " cm" : "-" } svg={"bodyMetric"} />
           <TodaySummary totalCalories={findTotalFoodCalories()} totalMeals={foodLog?.length} activeTime={totalMinutes} />
-
         </div>
+
+        {/* AI Daily Coach & Action Recommendation */}
+        <AiCoachCard />
 
         <div className="border rounded-xl bg-[#1D293D] w-[80%] p-4 text-white">
           <div className="flex items-center justify-between">
