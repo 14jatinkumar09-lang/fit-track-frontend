@@ -338,7 +338,7 @@ const FoodLog = () => {
 
             <div className="flex items-center justify-between text-xs text-gray-400 px-1">
               <span>Supports JPEG, PNG photos & PDF files</span>
-              <button
+              {/* <button
                 type="button"
                 onClick={handleUseDemoEstimate}
                 className="text-emerald-400 hover:text-emerald-300 underline flex items-center gap-1 hover:cursor-pointer"
@@ -346,7 +346,7 @@ const FoodLog = () => {
               >
                 <Sparkle size={12} />
                 <span>Demo Sample</span>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
